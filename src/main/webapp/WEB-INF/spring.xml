@@ -12,6 +12,8 @@
 
     <context:component-scan base-package="muk.spring.mvc"/>
     <mvc:annotation-driven conversion-service="conversionService" />
+    <mvc:default-servlet-handler/>
+    <mvc:resources mapping="/muk/**" location="/resources/" />
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/view/"/>

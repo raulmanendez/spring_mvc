@@ -4,7 +4,7 @@ public class Student {
 
 	private String fname;
 	private String lname;
-	private String forGit;
+	private State state;
 	
 	private Address address;
 
@@ -30,6 +30,14 @@ public class Student {
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+	
+	public State getState() {
+		return state;
+	}
+
+	public void setState(State state) {
+		this.state = state;
 	}
 
 	@Override

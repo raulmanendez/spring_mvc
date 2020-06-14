@@ -10,8 +10,7 @@ import muk.spring.mvc.beans.Address;
 public class AddressFormatter implements Formatter<Address> {
 
 	public String print(Address arg0, Locale arg1) {
-		// TODO Auto-generated method stub
-		return null;
+		return arg0.getCity()+" "+arg0.getZipcode();
 	}
 
 	public Address parse(String arg0, Locale arg1) throws ParseException {

@@ -5,7 +5,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.Formatter;
 import org.springframework.format.FormatterRegistry;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import muk.spring.mvc.formatter.AddressFormatter;
@@ -28,5 +30,15 @@ public class WebApplicationContextConfig implements WebMvcConfigurer{
 	public void addFormatters(FormatterRegistry registry) {
 		registry.addFormatter(new AddressFormatter());
 	}
+	
+	
+	 //<mvc:default-servlet-handler />
+	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
+    }
 
+    //mvc:resources mapping="/muk/**" location="/resources/"
+    public void addResourceHandlers(final ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/muk/**").addResourceLocations("/resources/");
+    }
 }
