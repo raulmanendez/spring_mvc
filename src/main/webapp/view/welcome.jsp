@@ -65,5 +65,15 @@
 <a href="order/place">Place Order</a>
 
 </fieldset>
+
+<br>
+<hr>
+<br>
+
+<fieldset>
+<legend>Validation</legend>
+<a href="user/add">User Form</a>
+
+</fieldset>
 </body>
 </html>

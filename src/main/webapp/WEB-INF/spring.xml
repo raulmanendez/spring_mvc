@@ -11,7 +11,7 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:component-scan base-package="muk.spring.mvc"/>
-    <mvc:annotation-driven conversion-service="conversionService" />
+    <mvc:annotation-driven conversion-service="conversionService" validator="validator" />
     <mvc:default-servlet-handler/>
     <mvc:resources mapping="/muk/**" location="/resources/" />
 
@@ -29,5 +29,15 @@
             </set>
         </property>
     </bean> 
+    
+     <bean id="validator"
+          class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="validationMessageSource" ref="messageSource" />
+    </bean>
+    
+    <bean id="messageSource"
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basenames" value="classpath:errorMessages, classpath:customMessages" />
+    </bean>
 
 </beans>

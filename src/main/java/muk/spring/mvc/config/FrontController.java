@@ -2,7 +2,7 @@ package muk.spring.mvc.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-/*public class FrontController extends AbstractAnnotationConfigDispatcherServletInitializer{
+public class FrontController extends AbstractAnnotationConfigDispatcherServletInitializer{
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
@@ -20,9 +20,9 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 		return new String[] {"/"};
 	}
 
-}*/
-
-public class FrontController {
-
-
 }
+
+/*public class FrontController {
+
+
+}*/

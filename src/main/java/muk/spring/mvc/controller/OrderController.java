@@ -1,7 +1,9 @@
 package muk.spring.mvc.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,20 +24,24 @@ public class OrderController {
 		return mv;
 		
 	}
-	
+	 
 	@PostMapping("save")
-	public ModelAndView saveOrder(Order order,ModelAndView mv,RedirectAttributes ra)
+	public ModelAndView saveOrder(@Valid Order order,BindingResult br, ModelAndView mv,RedirectAttributes ra)
 	{
+		mv.setViewName("order_place");
+		if(br.hasErrors())
+			return mv;
+		
 		ra.addFlashAttribute("order",order);
 		mv.setViewName("redirect:view");
 		//if we don't redirect then refreshing will again run this method:repitition
 		//but request attributes are lost in such way
+		//use RedirectAttributes to avoid request attributes loss
 		return mv;
 		
 	}
 	
 	@RequestMapping("view")
-	//to avoid request attributes loss use RedirectAttributes
 	public ModelAndView viewOrder(ModelAndView mv)
 	{
 		mv.setViewName("order_view");
