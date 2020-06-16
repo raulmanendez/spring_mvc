@@ -13,6 +13,8 @@
 	<p>Age: ${savedUser.age}</p>
 	<p>Role: ${savedUser.role}</p>
 	
+	<p>Profile Image: <img width="30%" height="30%" src="<spring:url value='/resources/images/${savedUser.profile_pic.originalFilename}' />"></p>
+	
 	<h2>Address Info</h2>
 	<p>Street: ${savedUser.addr.street}</p>
 	<p>State: ${savedUser.addr.state}</p>

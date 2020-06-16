@@ -39,5 +39,16 @@
           class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basenames" value="classpath:errorMessages, classpath:customMessages" />
     </bean>
+    
+    <mvc:interceptors>
+    	<mvc:interceptor>
+    		<mvc:mapping path="/**"/>
+    		<bean class="muk.spring.intercept.MukkiIntercepter"/>
+    	</mvc:interceptor>
+    </mvc:interceptors>
+    
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="1024000"></property>
+    </bean>
 
 </beans>

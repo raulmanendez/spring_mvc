@@ -8,6 +8,12 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
+
+import lombok.Getter;
+import lombok.Setter;
+import muk.spring.mvc.annotation.isMature;
+
 import java.time.LocalDate;
 
 public class User {
@@ -19,8 +25,7 @@ public class User {
 	    @NotBlank(message = "Email must have a value")
 	    private String email;
 
-	    @Min(value = 18, message = "must be greater or equal to 18")
-	    @NotNull(message = "{notnull.age}")
+	    @isMature
 	    private Integer age;
 
 	    @NotNull(message = "birthday is a required field.")
@@ -29,55 +34,68 @@ public class User {
 
 	    @NotBlank(message = "Role must have a value")
 	    private String role;
-
+	    
+	    private MultipartFile profile_pic;
+	    
 	    @Valid
 	    private UserAddress addr;
 
-	    public String getName() {
-	        return name;
-	    }
+		public String getName() {
+			return name;
+		}
 
-	    public void setName(String name) {
-	        this.name = name;
-	    }
+		public void setName(String name) {
+			this.name = name;
+		}
 
-	    public String getEmail() {
-	        return email;
-	    }
+		public String getEmail() {
+			return email;
+		}
 
-	    public void setEmail(String email) {
-	        this.email = email;
-	    }
+		public void setEmail(String email) {
+			this.email = email;
+		}
 
-	    public Integer getAge() {
-	        return age;
-	    }
+		public Integer getAge() {
+			return age;
+		}
 
-	    public void setAge(Integer age) {
-	        this.age = age;
-	    }
+		public void setAge(Integer age) {
+			this.age = age;
+		}
 
-	    public LocalDate getBirthday() {
-	        return birthday;
-	    }
+		public LocalDate getBirthday() {
+			return birthday;
+		}
 
-	    public void setBirthday(LocalDate birthday) {
-	        this.birthday = birthday;
-	    }
+		public void setBirthday(LocalDate birthday) {
+			this.birthday = birthday;
+		}
 
-	    public String getRole() {
-	        return role;
-	    }
+		public String getRole() {
+			return role;
+		}
 
-	    public void setRole(String role) {
-	        this.role = role;
-	    }
+		public void setRole(String role) {
+			this.role = role;
+		}
 
-	    public UserAddress getAddr() {
-	        return addr;
-	    }
+		public MultipartFile getProfile_pic() {
+			return profile_pic;
+		}
 
-	    public void setAddr(UserAddress addr) {
-	        this.addr = addr;
-	    }
+		public void setProfile_pic(MultipartFile profile_pic) {
+			this.profile_pic = profile_pic;
+		}
+
+		public UserAddress getAddr() {
+			return addr;
+		}
+
+		public void setAddr(UserAddress addr) {
+			this.addr = addr;
+		}
+	    
+	    
+
 }

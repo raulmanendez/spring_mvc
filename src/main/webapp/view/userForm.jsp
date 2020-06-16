@@ -15,7 +15,12 @@
 	<h1>
 		<spring:message code="userForm.title" />
 	</h1>
-	<form:form modelAttribute="newUser">
+	<form:form modelAttribute="newUser" enctype="multipart/form-data">
+		
+		<p>
+		Upload an Image
+		<form:input path="profile_pic" type="file"/>
+		</p>
 		<p>
 			<spring:message code="user.name" />
 			<form:input path="name" />
