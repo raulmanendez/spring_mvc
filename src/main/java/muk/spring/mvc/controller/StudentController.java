@@ -11,9 +11,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import muk.spring.mvc.beans.State;
 import muk.spring.mvc.beans.Student;
+import muk.spring.mvc.beans.User;
+import muk.spring.mvc.exception.UserNotFound;
 
 @Controller
 @RequestMapping("/student/")
@@ -71,4 +74,22 @@ public class StudentController {
 		System.out.println("thismethodiscalledeverytimeinthiscontroller");
 		model.addAttribute("defaultmethodcalled","Student Form");
 	}
+	
+	@GetMapping("get")
+    public String getStudent(@RequestParam(required=false) Integer id,Model model) {
+    	
+    	if(id==null)
+    	{
+    		throw new UserNotFound("The Student can't be found.");
+    	}
+    	else
+    	{
+    		Student student=new Student();
+    		student.setFname("Anchal");
+    		student.setLname("Sharma");
+    		model.addAttribute(student);
+    	}
+    	
+    	return "student_form";
+    }
 }
