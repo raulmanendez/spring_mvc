@@ -75,5 +75,15 @@
 <a href="user/add">User Form</a>
 
 </fieldset>
+
+<br>
+<hr>
+<br>
+
+<fieldset>
+<legend>Content Negotiating View Resolver</legend>
+<a href="pro/list">View Product</a>
+
+</fieldset>
 </body>
 </html>

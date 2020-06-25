@@ -12,4 +12,10 @@ public class GlobalExceptionHandler {
 		model.addAttribute("message",e.getMessage());
 		return "error";
 	}
+	
+	@ExceptionHandler(Exception.class)
+	public String Exception(Model model,UserNotFound e) {
+		model.addAttribute("message",e.getMessage());
+		return "error";
+	}
 }
