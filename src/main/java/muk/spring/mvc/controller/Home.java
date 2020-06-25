@@ -22,15 +22,7 @@ public class Home {
 	@RequestMapping("/th")
 	public String getWelcomeThymeleaf(Model model)
 	{
-		//return "welcome.html";
-		
-		 List<Product> products = Arrays.asList(
-	                new Product(1L, "Mic", 129.00),
-	                new Product(2L, "Tablet", 229.00),
-	                new Product(3L, "Laptop", 329.00)
-	        );
-	        model.addAttribute("products", products);
-	        return "product.html";
+		return "welcome.html";
 	}
 	
 	@ModelAttribute
