@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" 
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Thymeleaf</title>
+</head>
+<body>
+
+<fieldset>
+<legend>Conditional Expression (if-else)</legend>
+
+<p th:text="${user} ? 'User Object is not Null'">? indicates if true</p>
+<p th:text="${user1} ?: 'User1 Object is Null'">?: indicates if false</p>
+
+</fieldset>
+
+<br>
+<hr>
+<br>
+
+<fieldset>
+<legend>Conditional Expression (if-then-else)</legend>
+
+<p th:text="${user} ? 'User Object is not Null' : 'User Object is Null'">? indicates true : false</p>
+<p th:text="${user1} ? 'User Object is not Null' : 'User 1 Object is Null'">? indicates true : false</p>
+
+</fieldset>
+
+<br>
+<hr>
+<br>
+
+<fieldset>
+<legend>Conditional Expression (if-unless)</legend>
+
+<p th:if="${user}">User is not null (works if true)</p>
+<p th:unless="${user1}">User 1 is null (works if false)</p>
+
+</fieldset>
+
+<br>
+<hr>
+<br>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>User Success</title>
+</head>
+<body>
+<fieldset>
+<legend>User Details</legend>
+
+<p>Name: <span th:text="${user.name}">Name</span></p>
+<p>Email: <span th:text="${user.email}">Email</span></p>
+<p>Age: <span th:text="${user.age}">Age</span></p>
+<p>Birthday: <span th:text="${user.birthday}">Birthday</span></p>
+<p>Role: <span th:text="${user.role}">Role</span></p>
+<h3>Nested Address</h3>
+<p>Street: <span th:text="${user.addr.street}">Street</span></p>
+<p>State: <span th:text="${user.addr.state}">State</span></p>
+<p>Zip-Code: <span th:text="${user.addr.zipcode}">Zip-Code</span></p>
+
+</fieldset>
+</body>
+</html>

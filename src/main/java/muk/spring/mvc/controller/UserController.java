@@ -43,6 +43,20 @@ public class UserController {
     public String getUserForm(@ModelAttribute("newUser") User user, Model model) {
         return "userForm";
     }
+    
+    @GetMapping("thymeleaf/add")
+    public String getUserThymelafForm(@ModelAttribute("newUser") User user, Model model) {
+        return "userForm.html";
+    }
+    
+    @PostMapping("thymeleaf/add")
+    public String saveThymeleafUser(@Valid @ModelAttribute("newUser") User user, BindingResult result,RedirectAttributes redirectAttributes) {
+    	if (result.hasErrors()) {
+            return "userForm.html";
+        }
+    	 redirectAttributes.addFlashAttribute("user", user);
+         return "redirect:userThymeleafDetails";
+    }
 
     @PostMapping("add")
     public String saveUser(@Valid @ModelAttribute("newUser") User user, BindingResult result,RedirectAttributes redirectAttributes) {
@@ -93,6 +107,15 @@ public class UserController {
     public String success() {
 
         return "userSuccess";
+    }
+    
+    @GetMapping("thymeleaf/userThymeleafDetails")
+    public String Thymeleafsuccess(Model model) {
+
+    	if(model.getAttribute("user")==null)
+    		return "redirect:add";
+    	else
+    		return "userDetails.html";
     }
     
     @ExceptionHandler(UserNotFound.class)

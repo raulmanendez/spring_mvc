@@ -1,14 +1,41 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Home Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title th:text="${projectName}">Title</title>
 </head>
 <body>
+<header th:include="fragment/layout :: header">
+This will be replaced by header th:include/insert/replace
+</header>
+<fieldset>
+<legend>Declarative Routing</legend>
+<a href="#" th:href="@{jsp}">JSP View</a>
 
-<h1 th:text="${projectName}"></h1>
-This is Thymeleaf demo.....
+</fieldset>
 
-<a href="pro/list" target="_new">Product Controller</a>
+<br>
+<hr>
+<br>
+
+<fieldset>
+<legend>Expression Demo</legend>
+<a href="#" th:href="@{thymeleaf/simple_expression}">Simple Expression</a><br>
+<a href="#" th:href="@{thymeleaf/conditional_expression}">Conditional Expression</a><br>
+<a href="#" th:href="@{thymeleaf/iteration_expression}">Iteration Expression</a><br>
+</fieldset>
+
+<br>
+<hr>
+<br>
+
+<fieldset>
+<legend>Validation</legend>
+<a href="#" th:href="@{user/thymeleaf/add}">Validation</a><br>
+</fieldset>
+
+<footer th:insert="fragment/layout :: footer">
+This will be replaced by footer th:include/insert/replace
+</footer>
 </body>
 </html>

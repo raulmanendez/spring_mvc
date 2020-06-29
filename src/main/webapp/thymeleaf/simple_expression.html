@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" 
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Thymeleaf</title>
+</head>
+<body>
+<fieldset>
+<legend>Simple Expression | Variable Expression</legend>
+
+<p th:text="${user.name}">Name</p>
+<p th:text="${user.email}">Email</p>
+<p th:text="${user.age}">Age</p>
+<p th:text="${user.birthday}">Birthday</p>
+<p th:text="${user.role}">Role</p>
+<h3>Nested Address</h3>
+<p th:text="${user.addr.street}">Street</p>
+<p th:text="${user.addr.state}">State</p>
+<p th:text="${user.addr.zipcode}">Zip-Code</p>
+
+</fieldset>
+
+<br>
+<hr>
+<br>
+
+<fieldset>
+<legend>Messages</legend>
+
+<p th:text="#{thymeleaf.message.one}">Message 1</p>
+<p th:text="#{thymeleaf.message.two}">Message 2</p>
+
+</fieldset>
+
+<br>
+<hr>
+<br>
+
+<fieldset>
+<legend>Link URL Expression</legend>
+
+<a href="#" th:href="@{simple_expression}">Simple Link</a><br>
+<a href="#" th:href="@{simple_expression (name=${user.name} , email=${user.email})}">Query String</a><br>
+<a href="#" th:href="@{simple_expression/name/{name}/email/{email} (name=${user.name} ,email=${user.email})}">Path Variable URL</a><br>
+
+</fieldset>
+
+<br>
+<hr>
+<br>
+
+<fieldset th:object="${user}">
+<legend>Selection Variable Expression</legend>
+
+<p th:text="*{name}">Name</p>
+<p th:text="*{email}">Email</p>
+<p th:text="*{age}">Age</p>
+<p th:text="*{birthday}">Birthday</p>
+<p th:text="*{role}">Role</p>
+<h3>Nested Address</h3>
+<p th:text="*{addr.street}">Street</p>
+<p th:text="*{addr.state}">State</p>
+<p th:text="*{addr.zipcode}">Zip-Code</p>
+
+</fieldset>
+</body>
+</html>

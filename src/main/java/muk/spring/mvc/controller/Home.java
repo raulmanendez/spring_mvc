@@ -13,13 +13,13 @@ import muk.spring.mvc.beans.Product;
 @Controller
 public class Home {
 
-	@RequestMapping({"/","me"})
+	@RequestMapping({"/","jsp"})
 	public String getWelcome()
 	{
 		return "welcome";
 	}
 	
-	@RequestMapping("/th")
+	@RequestMapping("/thymeleaf")
 	public String getWelcomeThymeleaf(Model model)
 	{
 		return "welcome.html";
@@ -28,6 +28,6 @@ public class Home {
 	@ModelAttribute
 	public void setProjectName(Model model)
 	{
-		model.addAttribute("projectName","Spring MVC Thymeleaf Page..");
+		model.addAttribute("projectName","Spring Thymeleaf");
 	}
 }

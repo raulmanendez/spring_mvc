@@ -1,0 +1,55 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Add A new User</title>
+<style>
+.error {
+	color: red;
+}
+</style>
+</head>
+<body>
+
+	<h1 th:text="#{userForm.title}"></h1>
+	<form th:object="${newUser}" method="post">
+		
+		<ul th:if="${#fields.hasErrors('*')}">
+        	<li th:each="err : ${#fields.errors('*')}" th:text="${err}" th:class="error">Input is incorrect</li>
+    	</ul>
+		<p th:text="#{user.name}" />
+		<input th:field="*{name}" />
+		 <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:errorclass="error"></span>
+
+		<p th:text="#{user.email}" />
+		<input th:field="*{email}" />
+		<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:errorclass="error"></span>
+
+
+		<p th:text="#{user.birthday}" />
+		<input th:field="*{birthday}" />
+		<span th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}" th:errorclass="error"></span>
+
+
+		<p>
+			Age: <input th:field="*{age}" />
+			<span th:if="${#fields.hasErrors('age')}" th:errors="*{age}" th:errorclass="error"></span>
+		<p>
+			Role: <select th:field="*{role}">
+				<option value="DBA">DBA</option>
+			</select>
+			<span th:if="${#fields.hasErrors('role')}" th:errors="*{role}" th:errorclass="error"></span>
+		<p>Address Info:
+		<p>
+			Street: <input th:field="*{addr.street}" />
+			<span th:if="${#fields.hasErrors('addr.street')}" th:errors="*{addr.street}" th:errorclass="error"></span>
+		<p>
+			State: <input th:field="*{addr.state}" />
+			<span th:if="${#fields.hasErrors('addr.state')}" th:errors="*{addr.state}" th:errorclass="error"></span>
+		<p>
+			Zip code: <input th:field="*{addr.zipcode}" /> 
+			<span th:if="${#fields.hasErrors('addr.zipcode')}" th:errors="*{addr.zipcode}" th:errorclass="error"></span>
+			
+			<input type="submit" value="Add" />
+	</form>
+
+</body>
+</html>

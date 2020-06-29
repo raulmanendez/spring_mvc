@@ -4,12 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Spring JSP</title>
 </head>
 <body>
 
 <fieldset>
 <legend>Declarative Routing</legend>
+<a href="thymeleaf">Thymeleaf View</a><br>
 <a href="form">Simple Form</a>
 
 </fieldset>
@@ -85,5 +86,6 @@
 <a href="pro/list">View Product</a>
 
 </fieldset>
+
 </body>
 </html>

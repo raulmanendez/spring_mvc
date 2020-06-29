@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" 
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Thymeleaf</title>
+</head>
+<body>
+<div class="container">
+    <h1>Iteration Expression</h1>
+    <h2>Without Index</h2>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Sr No</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <th th:text="${product.id}">1</th>
+            <td th:text="${product.id}">1</td>
+            <td th:text="${product.name}">Otto</td>
+            <td th:text="${product.price}">123</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <h2>With Index - Version 1</h2>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Sr No</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product ,iter : ${products}">
+            <td th:text="${iter.index+1}">1</td>
+            <td th:text="${product.id}">1</td>
+            <td th:text="${product.name}">Otto</td>
+            <td th:text="${product.price}">123</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <h2>With Index - Version 2</h2>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Sr No</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <td th:text="${productStat.index+1}">1</td>
+            <td th:text="${product.id}">1</td>
+            <td th:text="${product.name}">Otto</td>
+            <td th:text="${product.price}">123</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
